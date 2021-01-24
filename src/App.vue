@@ -23,6 +23,8 @@ export default {
 }
 </script>
 <style>
+@import '../node_modules/bulma/css/bulma.css';
+
 html, body{
   /*CSS resets to override default browser behaviour*/
   margin: 0;
