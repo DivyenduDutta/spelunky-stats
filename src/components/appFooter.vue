@@ -11,7 +11,7 @@
             </a>&nbsp;&nbsp;&nbsp;
             <a class="has-text-black"
                 href="https://twitter.com/sense_divine">
-                <img src='../assets/github.png'/>
+                <img src='../assets/twitter.png'/>
                 <span  class="is-size-5">Twitter</span>
             </a>
     </div>
