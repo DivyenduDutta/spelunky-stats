@@ -11,31 +11,23 @@
           <div class="container">
             <section class="section app-head-section">
               <div class="columns is-vcentered is-mobile">
-                <div class="column is-narrow">
-                    <h1
-                      class="title is-size-4 is-size-6-mobile"
-                      style="letter-spacing: -2px"
-                    >
-                      <span class="has-text-nowrap app-header-text">
-                        Spelunky
-                        <span class="has-text-weight-normal">Stats</span>
-                      </span>
-                      
-                      <!-- <figure class="image is-128x128">
-                        <img src='../assets/mgs.gif' />
-                    </figure> -->
-                    </h1>
+                <div class="column is-narrow column-padding-reduce">
+                    <figure class="image">
+                      <img src='../assets/header.gif' />
+                    </figure>
                 </div>
-                <div class="column two-thirds"><!-- dummy div placed here to align other columns to right--></div>
-                <div class="column is-narrow">
+                <div class="column column-padding-reduce two-thirds"><!-- dummy div placed here to align other columns to right--></div>
+                <div class="column column-padding-reduce is-narrow">
                   <a
                   class="has-text-light is-size-8"
                   >divine-sense</a>
                 </div>
-                <div class="column is-narrow">
-                  <a
-                  class="has-text-light is-size-8"
-                  >help</a>
+                <div class="column column-padding-reduce is-narrow">
+                    <figure class="image has-tooltip-bottom has-tooltip-success" data-tooltip="whats this about" >
+                        <a href="https://github.com/DivyenduDutta/spelunky-stats/blob/main/README.md">
+                          <img src='../assets/help.gif' />
+                        </a>
+                    </figure>
                 </div>
               </div>
             </section>
@@ -52,16 +44,21 @@ export default {
 
 <style scoped>
 .app-head{
-    background-color: #5CDB95;
+    /* background-color: #5CDB95; */
+    background-color: #379683;
 }
 
 .app-head-section{
-  height: 50px;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  height: 60px;
+  padding-top: 15px;
+  padding-bottom: 18px;
 }
 
 .app-header-text{
     color: #05386B;
+}
+
+.column-padding-reduce{
+  padding-top: 0px;
 }
 </style>

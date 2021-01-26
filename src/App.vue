@@ -24,6 +24,7 @@ export default {
 </script>
 <style>
 @import '../node_modules/bulma/css/bulma.css';
+@import '../node_modules/bulma-tooltip/dist/css/bulma-tooltip.min.css';
 
 html, body{
   /*CSS resets to override default browser behaviour*/
