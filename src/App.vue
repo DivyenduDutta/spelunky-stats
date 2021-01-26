@@ -29,5 +29,6 @@ html, body{
   /*CSS resets to override default browser behaviour*/
   margin: 0;
   padding: 0;
+  overflow: hidden;
 }
 </style>

@@ -14,7 +14,7 @@ export default {
 
 <style scoped>
 #app-footer-id{
-    background-color: #e7ddd2;
+    background-color: #eDF5E1;
     height: 50px;
 }
 </style>
