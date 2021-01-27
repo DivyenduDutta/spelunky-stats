@@ -1,7 +1,7 @@
 <template>
   <div>
     <app-header />
-    <data-entry />
+    <data-entry-root />
     <data-display />
     <app-footer />
   </div>
@@ -9,7 +9,7 @@
 <script>
 import appHeader from './components/appHeader';
 import appFooter from './components/appFooter';
-import dataEntry from './components/dataEntry';
+import dataEntryRoot from './components/dataEntry/dataEntryRoot';
 import dataDisplay from './components/dataDisplay';
 
 export default {
@@ -17,7 +17,7 @@ export default {
   components: {
     'app-header': appHeader,
     'app-footer': appFooter,
-    'data-entry': dataEntry,
+    'data-entry-root': dataEntryRoot,
     'data-display': dataDisplay
   }
 }
@@ -31,5 +31,6 @@ html, body{
   margin: 0;
   padding: 0;
   overflow: hidden;
+  cursor: url('./assets/cursor.png'), auto;
 }
 </style>

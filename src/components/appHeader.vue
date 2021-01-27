@@ -1,8 +1,4 @@
 <template>
-    <!-- <div id="app-header-id"
-         aria-label="main head">
-        <span id="app-header-text">Spelunky Stats</span>
-    </div> -->
     <div>
         <div
             class="app-head"
@@ -43,9 +39,14 @@ export default {
 </script>
 
 <style scoped>
+@font-face { 
+    font-family: "Yusei Magic";
+    src: url("../assets/fonts/YuseiMagic-Regular.ttf"); 
+}
+
 .app-head{
-    /* background-color: #5CDB95; */
     background-color: #379683;
+    font-family: "Yusei Magic";
 }
 
 .app-head-section{

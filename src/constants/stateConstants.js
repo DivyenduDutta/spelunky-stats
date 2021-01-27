@@ -1,0 +1,1 @@
+export const  ADD_NEW_DEATH_CAUSE = 'ADD_NEW_DEATH_CAUSE';
