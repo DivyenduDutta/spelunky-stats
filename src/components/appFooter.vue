@@ -33,5 +33,12 @@ export default {
 .app-footer-main{
     background-color: #eDF5E1;
     font-family: "Yusei Magic";
+    padding-top: 3%;
+    padding-bottom: 1%;
+
+    /*Sticky header at bottom*/
+    position: relative;
+    height: 185px;
+    margin-top: 130px;
 }
 </style>

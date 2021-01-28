@@ -31,6 +31,11 @@ html, body{
   margin: 0;
   padding: 0;
   overflow: hidden;
+  
   cursor: url('./assets/cursor.png'), auto;
+  background-color: #379683;
+  
+  /*Sticky header at bottom */
+  min-height: 100%;
 }
 </style>

@@ -8,17 +8,15 @@
                     placeholder="Died because...">
             </div>
             <div class="control data-display-root-submit" @click="submitDeathCause">
-                <a class="button data-display-submit">
-                Submit
-                </a>
+                <img id="submit-btn-id" src="../../assets/submit_btn.gif" />
             </div>
         </div>
     </div>
 </template>
 
 <script>
-import * as bulmaToast from 'bulma-toast';
 import * as CommonConstants from '../../constants/commonConstants';
+import { createBulmaToast } from '../../helpers/toastHelper';
 
 export default {
     name: 'dataEntryInput',
@@ -29,23 +27,24 @@ export default {
     },
     methods: {
         submitDeathCause(){
+            //handle buttom image first
+            document.getElementById('submit-btn-id').src = require('../../assets/submit_btn_pressed.png');
+
             let death = {
                 "cause" : this.deathCause,
-                "deathCount" : 1
+                "deathCount" : 1,
+                "color" : '#' + Math.random().toString().slice(2,8)
             };
             this.$store
                 .dispatch('addNewDeathCause', death)
                 .then((res) => {
                     if(res == CommonConstants.OK_200){
-                        bulmaToast.toast({ 
-                            message: 'Successfully added',
-                            type: 'is-success',
-                            position: "top-center",
-                            dismissible: true,
-                            duration: 3000
-                        });
+                        createBulmaToast('Successfully added', 'is-success', 'top-center');
+                    }else{
+                        createBulmaToast('Error adding death cause', 'is-danger', 'top-center');
                     }
                     this.deathCause = '';
+                    document.getElementById('submit-btn-id').src = require('../../assets/submit_btn.gif');
                 });
         }
     }
@@ -62,13 +61,16 @@ export default {
 #app-data-entry-id{
     font-family: "Yusei Magic";
     background-color: #379683;
+    margin-bottom: 20px;
 }
 
 .data-display-root-input{
     display: block;
     width: 100%;
-    padding: 5%;
-    padding-bottom: 2%;
+    padding-bottom: 0px;
+    padding-top: 2%;
+    padding-left: 5%;
+    padding-right: 5%;
 }
 
 .data-display-input{
@@ -94,12 +96,10 @@ export default {
 }
 
 .data-display-root-submit{
-    padding: 5%;
-    padding-bottom: 2%;
+    padding-right: 5%;
+    padding-top: 2%;
+    padding-bottom: 0px;
     padding-left: 0;
-}
-
-.data-display-submit{
-    font-size: 20px;
+    cursor: pointer;
 }
 </style>

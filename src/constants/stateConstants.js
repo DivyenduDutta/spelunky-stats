@@ -1,1 +1,2 @@
 export const  ADD_NEW_DEATH_CAUSE = 'ADD_NEW_DEATH_CAUSE';
+export const GET_ALL_DEATHS = 'GET_ALL_DEATHS';
