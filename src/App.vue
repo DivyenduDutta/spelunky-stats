@@ -1,5 +1,6 @@
 <template>
   <div>
+    <loading v-if="loading"/>
     <app-header />
     <data-entry-root />
     <data-display />
@@ -11,6 +12,8 @@ import appHeader from './components/appHeader';
 import appFooter from './components/appFooter';
 import dataEntryRoot from './components/dataEntry/dataEntryRoot';
 import dataDisplay from './components/dataDisplay';
+import loading from './components/loading/loading';
+import { mapGetters } from 'vuex';
 
 export default {
   name: 'app',
@@ -18,7 +21,13 @@ export default {
     'app-header': appHeader,
     'app-footer': appFooter,
     'data-entry-root': dataEntryRoot,
-    'data-display': dataDisplay
+    'data-display': dataDisplay,
+    'loading' : loading
+  },
+  computed: {
+      ...mapGetters([
+      'loading'
+      ])
   }
 }
 </script>
@@ -37,5 +46,20 @@ html, body{
   
   /*Sticky header at bottom */
   min-height: 100%;
+}
+
+::selection {
+  color: #05386B;
+  background: #8EE4AF;
+}
+
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
 }
 </style>

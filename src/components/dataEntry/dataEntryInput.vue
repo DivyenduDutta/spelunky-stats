@@ -5,9 +5,10 @@
                 <input class="input data-display-input" 
                     type="text" 
                     v-model="deathCause"
+                    maxlength="44"
                     placeholder="Died because...">
             </div>
-            <div class="control data-display-root-submit" @click="submitDeathCause">
+            <div class="control data-display-root-submit noselect" @click="submitDeathCause">
                 <img id="submit-btn-id" src="../../assets/submit_btn.gif" />
             </div>
         </div>
@@ -26,10 +27,15 @@ export default {
         }
     },
     methods: {
+        validateInput(){
+            return this.deathCause !== '';
+        },
         submitDeathCause(){
+            
             //handle buttom image first
             document.getElementById('submit-btn-id').src = require('../../assets/submit_btn_pressed.png');
 
+            if(this.validateInput()){
             let death = {
                 "cause" : this.deathCause,
                 "deathCount" : 1,
@@ -46,6 +52,10 @@ export default {
                     this.deathCause = '';
                     document.getElementById('submit-btn-id').src = require('../../assets/submit_btn.gif');
                 });
+            }else{
+                document.getElementById('submit-btn-id').src = require('../../assets/submit_btn.gif');
+                createBulmaToast('Nothing entered!!', 'is-danger', 'top-center');
+            }
         }
     }
 }
@@ -66,11 +76,12 @@ export default {
 
 .data-display-root-input{
     display: block;
-    width: 100%;
+    width: 50%;
     padding-bottom: 0px;
     padding-top: 2%;
     padding-left: 5%;
     padding-right: 5%;
+    margin-left: 18%;
 }
 
 .data-display-input{

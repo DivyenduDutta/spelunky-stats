@@ -8,7 +8,7 @@
             <section class="section app-head-section">
               <div class="columns is-vcentered is-mobile">
                 <div class="column is-narrow column-padding-reduce">
-                    <figure class="image">
+                    <figure class="image noselect">
                       <img src='../assets/header.gif' />
                     </figure>
                 </div>
@@ -19,7 +19,7 @@
                   >divine-sense</a>
                 </div>
                 <div class="column column-padding-reduce is-narrow">
-                    <figure class="image has-tooltip-bottom has-tooltip-success" data-tooltip="whats this about" >
+                    <figure class="image has-tooltip-bottom has-tooltip-success noselect" data-tooltip="whats this about" >
                         <a href="https://github.com/DivyenduDutta/spelunky-stats/blob/main/README.md">
                           <img src='../assets/help.gif' />
                         </a>
