@@ -14,13 +14,18 @@
                 </div>
                 <div class="column column-padding-reduce two-thirds"><!-- dummy div placed here to align other columns to right--></div>
                 <div class="column column-padding-reduce is-narrow">
-                  <a
-                  class="has-text-light is-size-8"
-                  >divine-sense</a>
+                  <login v-if="!isSignedIn && !isAdmin"/>
+                  <span v-if="isSignedIn && !isAdmin" class="has-text-light is-size-8"> 
+                    Hi {{ username }}
+                  </span>
+                  <span v-if="isSignedIn && isAdmin" class="has-text-light is-size-8"> 
+                    Hi {{ username }} (Admin)
+                  </span>
                 </div>
                 <div class="column column-padding-reduce is-narrow">
                     <figure class="image has-tooltip-bottom has-tooltip-success noselect" data-tooltip="whats this about" >
-                        <a href="https://github.com/DivyenduDutta/spelunky-stats/blob/main/README.md">
+                        <a href="https://github.com/DivyenduDutta/spelunky-stats/blob/main/README.md"
+                            onclick="window.open(this.href); return false;">
                           <img src='../assets/help.gif' />
                         </a>
                     </figure>
@@ -33,8 +38,21 @@
 </template>
 
 <script>
+import Login from './login/login';
+import { mapGetters } from 'vuex';
+
 export default {
-    name: 'appHeader'
+    name: 'appHeader',
+    components: {
+      'login' : Login
+    },
+    computed: {
+    ...mapGetters("auth", [
+        "username",
+        "isAdmin", 
+        "isSignedIn"
+    ])
+  }
 }
 </script>
 

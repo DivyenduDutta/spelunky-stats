@@ -14,11 +14,13 @@
                             <li v-for="deathKey of Object.keys(causesOfDeaths)" 
                                 :key="deathKey"
                                 v-rainbow="causesOfDeaths[deathKey].color">
-                                    <span class="plus-icon-img noselect"
+                                    <span v-if="isSignedIn && isAdmin" 
+                                           class="plus-icon-img noselect"
                                            @click="updateDeathCount(deathKey, causesOfDeaths[deathKey], 'plus')">
                                         <img src='../../assets/plus.png'/>
                                      </span>
-                                    <span class="minus-icon-img noselect"
+                                    <span v-if="isSignedIn && isAdmin"
+                                           class="minus-icon-img noselect"
                                            @click="updateDeathCount(deathKey, causesOfDeaths[deathKey], 'minus')">
                                         <img src='../../assets/minus.png'/>
                                     </span>
@@ -90,6 +92,10 @@ export default {
     ...mapGetters([
       'causesOfDeaths',
       'initialLoadError'
+    ]),
+    ...mapGetters("auth",[
+      'isSignedIn',
+      'isAdmin'
     ])
   },
   directives: {
