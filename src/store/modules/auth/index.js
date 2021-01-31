@@ -52,8 +52,6 @@ export default {
         name: user.displayName,
         claims: user.claims,
         jwtToken: user.jwtToken,
-        photoURL: user.photoURL,
-        email: user.email,
         uid: user.uid
       };
     }

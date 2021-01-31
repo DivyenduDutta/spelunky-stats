@@ -16,10 +16,16 @@
                 <div class="column column-padding-reduce is-narrow">
                   <login v-if="!isSignedIn && !isAdmin"/>
                   <span v-if="isSignedIn && !isAdmin" class="has-text-light is-size-8"> 
-                    Hi {{ username }}
+                     <span class="user-text">Hi {{ username }} </span>
+                    <span class='logout' @click="logout"> 
+                      <img class="noselect" src='../assets/logout.png' />
+                    </span>
                   </span>
                   <span v-if="isSignedIn && isAdmin" class="has-text-light is-size-8"> 
-                    Hi {{ username }} (Admin)
+                    <span class="user-text">Hi {{ username }} (Admin) </span>
+                    <span class='logout' @click="logout"> 
+                      <img class="noselect" src='../assets/logout.png' />
+                     </span>
                   </span>
                 </div>
                 <div class="column column-padding-reduce is-narrow">
@@ -40,6 +46,8 @@
 <script>
 import Login from './login/login';
 import { mapGetters } from 'vuex';
+import { mapActions } from "vuex";
+import { createBulmaToast } from '../helpers/toastHelper';
 
 export default {
     name: 'appHeader',
@@ -52,6 +60,13 @@ export default {
         "isAdmin", 
         "isSignedIn"
     ])
+  },
+  methods: {
+    ...mapActions("auth", ["signOut"]),
+    logout(){
+      createBulmaToast('You have logged out', 'is-success', 'top-center');
+      this.signOut();
+    }
   }
 }
 </script>
@@ -79,5 +94,16 @@ export default {
 
 .column-padding-reduce{
   padding-top: 0px;
+}
+
+.logout{
+  cursor: pointer;
+}
+
+.user-text{
+  display: inline-block;
+  position: relative;
+  top: -10px;
+  right: 10px
 }
 </style>

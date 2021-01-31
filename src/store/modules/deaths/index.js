@@ -1,6 +1,8 @@
-import axios from 'axios';
+import myAxios from '../../../helpers/axios';
+import actualAxios from 'axios';
 import * as StateConstants from '../../../constants/stateConstants';
 import * as CommonConstants from '../../../constants/commonConstants';
+import store from '../../../store';
 
 const state = {
     deaths : {},
@@ -33,9 +35,10 @@ const mutations = {
 }
 
 const actions = {
-    addNewDeathCause({commit}, death){
+    async addNewDeathCause({commit}, death){
         commit(StateConstants.SET_LOADING, true);
-        return axios.post('https://spelunky-stats-default-rtdb.europe-west1.firebasedatabase.app/deaths.json', death).then((res) => {
+        const axios = await myAxios();
+        return axios.post('/deaths.json?auth='+store.state.auth.user.jwtToken, death).then((res) => {
             commit(StateConstants.SET_LOADING, false);
             if(res.status == CommonConstants.OK_200){
                 let newDeath = {
@@ -49,12 +52,16 @@ const actions = {
             }
         }).catch((err) => {
             commit(StateConstants.SET_LOADING, false);
+            if(err.response.data.error === "Auth token is expired"){
+                store.dispatch('auth/signOut');
+                return 'Session timed out. Please log in again.';
+            }
             return 'error';
         });
     },
-    getAllDeaths({commit}){
+    async getAllDeaths({commit}){
         commit(StateConstants.SET_LOADING, true);
-        axios.get('https://spelunky-stats-default-rtdb.europe-west1.firebasedatabase.app/deaths.json').then((res) => {
+        actualAxios.get(CommonConstants.BASE_RTDB_URL + '/deaths.json').then((res) => {
             commit(StateConstants.SET_LOADING, false);
             if(res.status == CommonConstants.OK_200){
                 commit(StateConstants.GET_ALL_DEATHS, res.data);
@@ -66,9 +73,10 @@ const actions = {
             commit(StateConstants.SET_INITIAL_LOAD_ERROR, true);
         });
     },
-    updateDeathCount({commit}, {deathKey, updatedDeath}){
+    async updateDeathCount({commit}, {deathKey, updatedDeath}){
         commit(StateConstants.SET_LOADING, true);
-        return axios.put('https://spelunky-stats-default-rtdb.europe-west1.firebasedatabase.app/deaths/'+deathKey+'.json', updatedDeath)
+        const axios = await myAxios();
+        return axios.put('/deaths/'+deathKey+'.json?auth='+store.state.auth.user.jwtToken, updatedDeath)
             .then((res) => {
                 commit(StateConstants.SET_LOADING, false);
                 if(res.status == CommonConstants.OK_200){
@@ -79,12 +87,18 @@ const actions = {
                 }
             }).catch((err) => {
                 commit(StateConstants.SET_LOADING, false);
+                if(err.response.data.error === "Auth token is expired"){
+                    store.dispatch('auth/signOut');
+                    return {errorCode: 'Session timed out. Please log in again.'};
+                }
+                
                 return {errorCode: 'Error while updating death count'};
             });
     },
-    deleteDeathCause({commit}, deathKey){
+    async deleteDeathCause({commit}, deathKey){
         commit(StateConstants.SET_LOADING, true);
-        return axios.delete('https://spelunky-stats-default-rtdb.europe-west1.firebasedatabase.app/deaths/'+deathKey+'.json')
+        const axios = await myAxios();
+        return axios.delete('/deaths/'+deathKey+'.json?auth='+store.state.auth.user.jwtToken)
             .then((res) => {
                 commit(StateConstants.SET_LOADING, false);
                 if(res.status == CommonConstants.OK_200){
@@ -95,6 +109,10 @@ const actions = {
                 }
             }).catch((err) => {
                 commit(StateConstants.SET_LOADING, false);
+                if(err.response.data.error === "Auth token is expired"){
+                    store.dispatch('auth/signOut');
+                    return {errorCode: 'Session timed out. Please log in again.'};
+                }
                 return {errorCode: 'Error while deleting death cause'};
             });
     }
