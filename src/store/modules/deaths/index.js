@@ -36,6 +36,7 @@ const mutations = {
 
 const actions = {
     async addNewDeathCause({commit}, death){
+        //This is called to add new deaths into the DB when Submit button is clicked
         commit(StateConstants.SET_LOADING, true);
         const axios = await myAxios();
         return axios.post('/deaths.json?auth='+store.state.auth.user.jwtToken, death).then((res) => {
@@ -60,6 +61,7 @@ const actions = {
         });
     },
     async getAllDeaths({commit}){
+        //This is used to retrive all the death details on initial app load
         commit(StateConstants.SET_LOADING, true);
         actualAxios.get(CommonConstants.BASE_RTDB_URL + '/deaths.json').then((res) => {
             commit(StateConstants.SET_LOADING, false);
@@ -74,6 +76,7 @@ const actions = {
         });
     },
     async updateDeathCount({commit}, {deathKey, updatedDeath}){
+        //This is used to update the death count on clicking either the `+` or `-` button
         commit(StateConstants.SET_LOADING, true);
         const axios = await myAxios();
         return axios.put('/deaths/'+deathKey+'.json?auth='+store.state.auth.user.jwtToken, updatedDeath)
@@ -96,6 +99,7 @@ const actions = {
             });
     },
     async deleteDeathCause({commit}, deathKey){
+        //This is used to remove a death cause from the DB
         commit(StateConstants.SET_LOADING, true);
         const axios = await myAxios();
         return axios.delete('/deaths/'+deathKey+'.json?auth='+store.state.auth.user.jwtToken)

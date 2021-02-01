@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div id="data-entry-root-id">
         <data-entry-input v-if="isSignedIn && isAdmin"/>
         <div v-else
              class="has-text-centered is-size-4 non-admin-text">
@@ -41,5 +41,11 @@ export default {
     font-weight: bold;
     color: #05386B;
     padding: 2%;
+}
+
+@media only screen and (max-width: 716px) {
+  .non-admin-text {
+    font-size: 18px !important;
+  }
 }
 </style>

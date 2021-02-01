@@ -8,8 +8,8 @@
                     maxlength="44"
                     placeholder="Died because...">
             </div>
-            <div class="control data-display-root-submit noselect" @click="submitDeathCause">
-                <img id="submit-btn-id" src="../../assets/submit_btn.gif" />
+            <div class="control data-display-root-submit noselect">
+                <img id="submit-btn-id"  @click="submitDeathCause" src="../../assets/submit_btn.gif" />
             </div>
         </div>
     </div>
@@ -111,6 +111,9 @@ export default {
     padding-top: 2%;
     padding-bottom: 0px;
     padding-left: 0;
+}
+
+#submit-btn-id{
     cursor: pointer;
 }
 </style>

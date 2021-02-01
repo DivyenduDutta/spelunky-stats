@@ -1,6 +1,6 @@
 <template>
    <footer class="footer app-footer-main">
-      <div class="content has-text-centered is-size-6">
+      <div class="content has-text-centered is-size-6 footer-sub">
         Developed by divine-sense out of boredom. Contributors: Music and caffeine.
         Open Source.
         <br /><br />
@@ -33,12 +33,30 @@ export default {
 .app-footer-main{
     background-color: #eDF5E1;
     font-family: "Yusei Magic";
-    padding-top: 3%;
-    padding-bottom: 1%;
+    padding-top: 30px;
+    padding-bottom: 10px;
 
     /*Sticky header at bottom*/
-    position: relative;
-    height: 185px;
-    margin-top: 130px;
+    position: absolute;
+    height: 150px;
+    bottom: 0;
+    /*Till here*/
+    
+    width: 100%;
+    transition: height 0.5s;
+}
+
+@media only screen and (max-width: 426px) {
+  .app-footer-main {
+    height: 100px;
+    padding-top: 10px;
+    padding-bottom: 5px;
+  }
+
+  .footer-sub{
+    padding-top: 0px;
+    padding-bottom: 0px;
+    font-size: 12px !important;
+  }
 }
 </style>

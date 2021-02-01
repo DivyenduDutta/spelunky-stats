@@ -29,6 +29,7 @@
                                     <span v-html="generateTallyMarks(causesOfDeaths[deathKey].deathCount)"
                                         class="tally-marks-root noselect"
                                     ></span>
+                                    <span v-if="Object.keys(causesOfDeaths)[Object.keys(causesOfDeaths).length - 1] !== deathKey" class="separator"></span>
                             </li> 
                         </ul>
                     </div>
@@ -50,22 +51,26 @@ export default {
     methods: {
         generateTallyMarks(deathCount){
             let tallyMarksMarkup = '';
-            let counter = 0;
-            while((counter+5)<=deathCount){
-                let pathToImg = require('../../assets/tally_marks_all.png');
-                tallyMarksMarkup += "<img src="+pathToImg+ " class='tally-marks-img'/>&nbsp";
-                counter += 5;
-            }
-            for(let i=counter; i<deathCount; i++){
-                let tally_mark_img_num = Math.floor(Math.random() * 5)+1;
-                let pathToImg = require('../../assets/tally_mark' + tally_mark_img_num + '.png');
-                tallyMarksMarkup += "<img src="+pathToImg+ " class='tally-marks-img'/>";
+            if(window.innerWidth <= 375){
+                tallyMarksMarkup = '<span>'+ deathCount +'</span>';
+            }else{
+                let counter = 0;
+                while((counter+5)<=deathCount){
+                    let pathToImg = require('../../assets/tally_marks_all.png');
+                    tallyMarksMarkup += "<img src="+pathToImg+ " class='tally-marks-img'/>&nbsp";
+                    counter += 5;
+                }
+                for(let i=counter; i<deathCount; i++){
+                    let tally_mark_img_num = Math.floor(Math.random() * 5)+1;
+                    let pathToImg = require('../../assets/tally_mark' + tally_mark_img_num + '.png');
+                    tallyMarksMarkup += "<img src="+pathToImg+ " class='tally-marks-img'/>";
+                }
             }
             
             return tallyMarksMarkup;
         },
         updateDeathCount(deathKey, updatedDeath, action){
-            let myUpdatedDeath = {... updatedDeath}; //shallow copy. making changes to state here reflects in store
+            let myUpdatedDeath = {... updatedDeath}; //Shallow copy. Making changes to state here reflects in store
             if(action === 'plus'){
                 myUpdatedDeath.deathCount += 1;
                 this.$store.dispatch('updateDeathCount', {deathKey, updatedDeath: myUpdatedDeath})
@@ -129,17 +134,25 @@ export default {
     font-weight: bold;
     color: #05386B;
 }
+
+@media only screen and (max-width: 716px) {
+  .data-display-empty {
+    font-size: 18px !important;
+  }
+}
+
 .deaths-root{
     background-color: #eDF5E1;
-    border-radius: 10px;
+    border-radius: 4px;
     max-height: 240px;
     overflow-y: auto;
 }
 
 .death-items-cause{
     font-weight: bold;
-    padding-left: 4%;
+    padding-left: 10px;
     font-size: 20px;
+    width: 100%;
 }
 
 .death-item-cause{
@@ -160,11 +173,27 @@ export default {
     height: 32px;
 }
 
+.separator{
+    display: block;
+    margin-right: 10px;
+    border-bottom: 2px solid #05386B;
+}
+
 .plus-icon-img{
     cursor: pointer;
 }
 
 .minus-icon-img{
     cursor: pointer;
+}
+
+@media only screen and (max-width: 368px) {
+  .death-items-cause {
+    font-size: 15px;
+  }
+
+  .death-item-cause {
+    width: 255px;
+  }
 }
 </style>

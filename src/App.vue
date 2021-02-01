@@ -49,11 +49,13 @@ html, body{
 }
 
 ::selection {
+  /*Text selection highlight through out changes*/
   color: #05386B;
   background: #8EE4AF;
 }
 
 .noselect {
+  /*Avoid selection of images*/
   -webkit-touch-callout: none; /* iOS Safari */
     -webkit-user-select: none; /* Safari */
      -khtml-user-select: none; /* Konqueror HTML */
