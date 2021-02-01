@@ -9,6 +9,8 @@ cache:
   - node_modules
 before_script:
 - npm i firebase-tools -g
+- npm i firebase/app
+- npm i firebase/auth
 script:
 - npm install
 - npm run build
