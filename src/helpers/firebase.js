@@ -1,6 +1,6 @@
-import firebase from "@firebase/app";
-import { auth as firebaseAuthUi } from "firebaseui";
-import "@firebase/auth";
+import firebase from "firebase/app";
+const firebaseAuthUi = require("firebaseui");
+import "firebase/auth";
 
 
 let ui = null;
