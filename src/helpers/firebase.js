@@ -1,6 +1,6 @@
-import firebase from "firebase/app";
+import firebase from "@firebase/app";
 import {auth as firebaseAuthUi} from 'firebaseui';
-import "firebase/auth";
+import "@firebase/auth";
 
 let ui = null;
 let auth = null;
