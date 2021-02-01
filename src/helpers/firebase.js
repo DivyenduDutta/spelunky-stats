@@ -1,5 +1,5 @@
-import * as firebase from "firebase/app";
-import { auth as firebaseAuthUi } from "firebaseui";
+import firebase from "firebase/app";
+import  * as firebaseAuthUi from "firebaseui";
 import "firebase/auth";
 
 
