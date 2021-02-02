@@ -2,6 +2,8 @@ import firebase from "@firebase/app";
 //import {auth as firebaseAuthUi} from 'firebaseui';
 import "@firebase/auth";
 
+//import firebase ui normally if running on local node server. See index.html for other changes
+
 window.firebase = firebase;
 
 let ui = null;
