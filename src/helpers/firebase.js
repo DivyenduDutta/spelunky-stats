@@ -1,7 +1,8 @@
 import firebase from "@firebase/app";
-import {auth as firebaseAuthUi} from 'firebaseui';
+//import {auth as firebaseAuthUi} from 'firebaseui';
 import "@firebase/auth";
 
+window.firebase = firebase;
 
 let ui = null;
 let auth = null;
@@ -14,11 +15,12 @@ if(process.env.NODE_ENV === 'production'){
   /*For production */
 
   fetch('/__/firebase/init.json').then(async response => {
+    console.log('keke');
     firebase.initializeApp(await response.json());
-
-    ui = new firebaseAuthUi.AuthUI(firebase.auth());
+    console.log('heh');
+    ui = new window.firebaseui.auth.AuthUI(firebase.auth());
     auth = firebase.auth;
-    noCredentialsHelper = firebaseAuthUi.CredentialHelper.NONE;
+    noCredentialsHelper = window.firebaseui.auth.CredentialHelper.NONE;
 
     authReady = () =>
     new Promise((resolve, reject) => {
@@ -41,11 +43,10 @@ if(process.env.NODE_ENV === 'development'){
   /*For local/dev purposes */
   const AuthConfig = require( "../../firebase.auth.json");
   firebase.initializeApp(AuthConfig);
-  
 
-  ui = new firebaseAuthUi.AuthUI(firebase.auth());
+  ui = new window.firebaseui.auth.AuthUI(firebase.auth());
   auth = firebase.auth;
-  noCredentialsHelper = firebaseAuthUi.CredentialHelper.NONE;
+  noCredentialsHelper = window.firebaseui.auth.CredentialHelper.NONE;
 
   authReady = () =>
     new Promise((resolve, reject) => {
