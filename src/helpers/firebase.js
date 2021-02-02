@@ -15,9 +15,7 @@ if(process.env.NODE_ENV === 'production'){
   /*For production */
 
   fetch('/__/firebase/init.json').then(async response => {
-    console.log('keke');
     firebase.initializeApp(await response.json());
-    console.log('heh');
     ui = new window.firebaseui.auth.AuthUI(firebase.auth());
     auth = firebase.auth;
     noCredentialsHelper = window.firebaseui.auth.CredentialHelper.NONE;
