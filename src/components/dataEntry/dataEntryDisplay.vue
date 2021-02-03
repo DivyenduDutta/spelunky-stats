@@ -51,7 +51,7 @@ export default {
     methods: {
         generateTallyMarks(deathCount){
             let tallyMarksMarkup = '';
-            if(window.innerWidth <= 420){
+            if(window.innerWidth <= 470){
                 tallyMarksMarkup = '<span>'+ deathCount +'</span>';
             }else{
                 let counter = 0;
@@ -187,13 +187,13 @@ export default {
     cursor: pointer;
 }
 
-@media only screen and (max-width: 420px) {
+@media only screen and (max-width: 470px) {
   .death-items-cause {
     font-size: 15px;
   }
 
   .death-item-cause {
-    width: 255px;
+    width: 305px;
   }
 }
 </style>

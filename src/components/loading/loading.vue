@@ -21,8 +21,9 @@ export default {
     width:480px;
 }
 
-@media only screen and (max-width: 420px) {
+@media only screen and (max-width: 470px) {
   .modal-gif {
+    margin: 0 auto;
     height: 240px;
     width:240px;
   }

@@ -1,7 +1,7 @@
 <template>
     <div id="data-entry-root-id">
         <data-entry-input v-if="isSignedIn && isAdmin"/>
-        <div v-else
+        <div v-if="!isSignedIn || !isAdmin && !loading"
              class="has-text-centered is-size-4 non-admin-text">
                 Only Admin can add and update new death causes.
         </div>
@@ -24,6 +24,9 @@ export default {
     ...mapGetters("auth", [
         "isAdmin", 
         "isSignedIn"
+    ]),
+    ...mapGetters([
+      'loading'
     ])
   }
 }
