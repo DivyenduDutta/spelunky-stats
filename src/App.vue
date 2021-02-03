@@ -39,7 +39,7 @@ html, body{
   /*CSS resets to override default browser behaviour*/
   margin: 0;
   padding: 0;
-  overflow: hidden;
+  overflow: auto;
   
   cursor: url('./assets/cursor.png'), auto;
   background-color: #379683;
