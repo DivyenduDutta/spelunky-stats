@@ -44,11 +44,11 @@ if(process.env.NODE_ENV === 'development'){
   const AuthConfig = require( "../../firebase.auth.json");
   firebase.initializeApp(AuthConfig);
 
-  //ui = new window.firebaseui.auth.AuthUI(firebase.auth());
-  ui = new firebaseAuthui.AuthUI(firebase.auth());
+  ui = new window.firebaseui.auth.AuthUI(firebase.auth());
+  //ui = new firebaseAuthui.AuthUI(firebase.auth());
   auth = firebase.auth;
-  //noCredentialsHelper = window.firebaseui.auth.CredentialHelper.NONE;
-  noCredentialsHelper = firebaseAuthui.CredentialHelper.NONE;
+  noCredentialsHelper = window.firebaseui.auth.CredentialHelper.NONE;
+  //noCredentialsHelper = firebaseAuthui.CredentialHelper.NONE;
 
   authReady = () =>
     new Promise((resolve, reject) => {
