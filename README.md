@@ -5,22 +5,21 @@
   <a href="https://v3.vuejs.org/"><img src="https://img.shields.io/badge/Vue-3.x-green" alt="Vuejs3"></a>
 </p>
 
-<h2 align="center">Spelunky Stats</h2>
 
-Web app written in Vue3 to capture and display the count of death causes in <a href="https://www.gog.com/game/spelunky">Spelunky</a>. Spelunky is an amazing indie platformer rougelike
+Web app written in Vue3 to capture and display the count of death causes in <a href="https://www.gog.com/game/spelunky">Spelunky</a>, an amazing indie platformer rougelike.
 
-All the pixel art is custom made (yep, including the cursor icon XD)
+All the pixel art is custom made (yep, including the cursor icon XD <img src="https://github.com/DivyenduDutta/spelunky-stats/blob/main/src/assets/cursor.png" alt="cursor_icon">)
 
 The current deployed app (which can be found <a href="https://spelunky-stats.web.app/">here</a>) allows only me to log in as an admin since only my gmail ID is associated as admin in the app. Non admin users can only view data.
 
 <p align="center"><img src="https://github.com/DivyenduDutta/spelunky-stats/blob/main/images/causes.PNG" alt="causes"></p> <br/>
 <p align="center"><img src="https://github.com/DivyenduDutta/spelunky-stats/blob/main/images/bar_graph.PNG" alt="bar_graph"></p>
 
-The admin once logged in (by clicking on "Admin-Login" at the top right corner) can input new death causes and <p align="center"><img src="https://github.com/DivyenduDutta/spelunky-stats/blob/main/images/input.PNG" alt="submit"></p> them.
+Once logged in (by clicking on "Admin-Login" at the top right corner) the admin can input new death causes and <img src="https://github.com/DivyenduDutta/spelunky-stats/blob/main/src/assets/submit_btn.gif" alt="submit"> them.
 
-<p align="center"><img src="https://github.com/DivyenduDutta/spelunky-stats/blob/main/src/assets/header.gif" alt="input"></p>
+<p align="center"><img src="https://github.com/DivyenduDutta/spelunky-stats/blob/main/images/input.PNG" alt="input"></p>
 
-The admin can also add/subtract counts for each death cause using <p align="center"><img src="https://github.com/DivyenduDutta/spelunky-stats/blob/main/src/assets/plus.png" alt="plus"></p> and <p align="center"><img src="https://github.com/DivyenduDutta/spelunky-stats/blob/main/src/assets/minus.png" alt="minus"></p>
+The admin can also add/subtract counts for each death cause using <img src="https://github.com/DivyenduDutta/spelunky-stats/blob/main/src/assets/plus.png" alt="plus"> and <img src="https://github.com/DivyenduDutta/spelunky-stats/blob/main/src/assets/minus.png" alt="minus">
 
 
 
