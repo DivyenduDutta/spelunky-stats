@@ -15,11 +15,13 @@ The current deployed app (which can be found <a href="https://spelunky-stats.web
 <p align="center"><img src="https://github.com/DivyenduDutta/spelunky-stats/blob/main/images/causes.PNG" alt="causes"></p> <br/>
 <p align="center"><img src="https://github.com/DivyenduDutta/spelunky-stats/blob/main/images/bar_graph.PNG" alt="bar_graph"></p>
 
-Once logged in (by clicking on "Admin-Login" at the top right corner) the admin can input new death causes and <img src="https://github.com/DivyenduDutta/spelunky-stats/blob/main/src/assets/submit_btn.gif" alt="submit"> them.
+<br />
+
+Once logged in (by clicking on "Admin-Login" at the top right corner) the admin can input new death causes and <img src="https://github.com/DivyenduDutta/spelunky-stats/blob/main/src/assets/submit_btn.gif" alt="submit"> them. <br/>
 
 <p align="center"><img src="https://github.com/DivyenduDutta/spelunky-stats/blob/main/images/input.PNG" alt="input"></p>
 
-The admin can also add/subtract counts for each death cause using <img src="https://github.com/DivyenduDutta/spelunky-stats/blob/main/src/assets/plus.png" alt="plus"> and <img src="https://github.com/DivyenduDutta/spelunky-stats/blob/main/src/assets/minus.png" alt="minus">
+The admin can also add/subtract counts for each death cause using <img src="https://github.com/DivyenduDutta/spelunky-stats/blob/main/src/assets/plus.png" alt="plus">  and  <img src="https://github.com/DivyenduDutta/spelunky-stats/blob/main/src/assets/minus.png" alt="minus">
 
 
 
